@@ -8,3 +8,8 @@ class MakeCakeTask < CompositeTask
     add_sub_task(LickSpoonTask.new)
   end
 end
+
+def hakaru_jikan_cake
+  cake = MakeCakeTask.new
+  cake.get_time_required
+end

@@ -18,3 +18,22 @@ class CompositeTask < Task
     time
   end
 end
+
+class MakeBatterTask < CompositeTask
+  def initialize(name)
+    add_sub_task(GetMilkTask.new)
+    add_sub_task(MixMilkTask.new)
+  end
+end
+
+class GetMilkTask < MakeBatterTask
+  def initialize
+    super('Get milk task')
+  end
+end
+
+class MixMilkTask < MakeBatterTask
+  def initialize
+    super('Get milk task')
+  end
+end

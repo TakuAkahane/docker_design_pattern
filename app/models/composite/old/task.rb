@@ -3,10 +3,23 @@ class Task
 
   def initialize(name)
     @name = name
+    print("@name has done")
   end
 
   def get_time_required
-    0.0
+    time = 0.0
+    @subtasks.each {|task| time += task.get_time_required}
+    time
+  end
+end
+
+class FillPanTask < Task
+  def initialize
+    super('Make batter')
+  end
+
+  def get_time_required
+    51.0 # 小麦粉と砂糖を加えるのに1分
   end
 end
 

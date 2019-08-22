@@ -41,3 +41,13 @@ class Employee
     @observers.delete(observer)
   end
 end
+
+fred = Employee.new
+tax_man = TaxMan.new
+pay_roll = Payroll.new
+
+fred.add_observer(tax_man)
+fred.add_observer(pay_roll)
+
+fred.salary = 1_000_000
+fred.title = 'Vice President of Sales'w

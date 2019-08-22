@@ -1,25 +1,27 @@
-module Subject
-  def initialize
-    @observers = []
-  end
+require 'observer'
 
-  def add_observer(&observer)
-    @observers << observer
-  end
-
-  def delete_observer(observer)
-    @observers.delete(observer)
-  end
-
-  def notify_observers
-    @observers.each do |observer|
-      observer.call(self)
-    end
-  end
-end
+# module Subject
+#   def initialize
+#     @observers = []
+#   end
+#
+#   def add_observer(&observer)
+#     @observers << observer
+#   end
+#
+#   def delete_observer(observer)
+#     @observers.delete(observer)
+#   end
+#
+#   def notify_observers(self)
+#     @observers.each do |observer|
+#       observer.call(self)
+#     end
+#   end
+# end
 
 class Employee
-  include Subject
+  include Observable
 
   attr_accessor :name, :title, :salary
 
@@ -35,7 +37,6 @@ class Employee
     @salary = new_salary
     if old_salary != new_salary
       changed
-      notify_observers(self)
     end
   end
 
@@ -44,7 +45,10 @@ class Employee
     @title = new_title
     if old_title != new_title
       changed = true
-      notify_observers(self)
     end
+  end
+
+  def changes_complete
+    notify_observers(self)
   end
 end
