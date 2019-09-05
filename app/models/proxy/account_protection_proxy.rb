@@ -6,6 +6,21 @@ class AccountProtectionProxy
     @owner_name = owner_name
   end
 
+  def deposit(amount)
+    check_access
+    return @subject.deposit(amount)
+  end
+
+  def withdraw(amount)
+    check_access
+    return @subject.withdraw(amount)
+  end
+
+  def balance
+    check_access
+    return @subject.balance
+  end
+
   def method_missing(name, *args)
     check_access
     @subject.send(name, *args)

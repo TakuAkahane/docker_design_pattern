@@ -1,4 +1,4 @@
-class TestMethodMissin
+class TestMethodMissing
   def hello
     puts("Hello from a real method")
   end
