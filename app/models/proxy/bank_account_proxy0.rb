@@ -1,7 +1,7 @@
-class DepositBankAccountProxy
+class BankAccountProxy
 
   validates :balance x > 100_000
-  authority :member
+  authority :master
 
   def initialize(real_object)
     @real_object = real_object
@@ -15,7 +15,7 @@ class DepositBankAccountProxy
     @real_object.deposit(amount)
   end
 
-  # def withdraw(amount)
-  #   @real_object.withdraw(amount)
-  # end
+  def withdraw(amount)
+    @real_object.withdraw(amount)
+  end
 end

@@ -4,18 +4,15 @@ class VirtualAccountProxy
   end
 
   def deposit(amount)
-    s = subject
-    return s.deposit(amount)
+    subject.deposit(amount)
   end
 
   def withdraw(amount)
-    s = subject
-    return s.withdraw(amount)
+    subject.withdraw(amount)
   end
 
   def balance
-    s = subject
-    return s.balance
+    subject.balance
   end
 
   def subject
