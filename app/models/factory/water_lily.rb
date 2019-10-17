@@ -5,4 +5,5 @@ class WaterLily
 
   def grow
     puts("スイレン#{@name}は浮きながら日光を浴びて育ちます。")
+  end
 end
